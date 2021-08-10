@@ -1,42 +1,21 @@
 import React, { Component } from 'react';
+import About from './About';
+import Project from './Project';
+import Home from './Home';
+import { Route, Link } from 'react-router-dom';
+import NavBar from './NavBar';
 
 class App extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            items: [],
-            isLoading: false
-        }
-    }
-    componentDidMount(){
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded: true,
-                    items: json
-                })
-            })
-    }
     render(){
-        var {isLoaded, items} = this.state;
-        if(!isLoaded){
-            return (
-                <div><h1>Loading...</h1></div>
-            )
-        }else{
-            return (
-                <div className="App">
-                    <ul>
-                        {items.map(item => (
-                            <li key="{item.id}">
-                                Name: {item.name} | Email: {item.email}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )
-        }
+        return (
+
+            <div className="App">
+                <NavBar />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/project" component={Project} />
+            </div>
+        )
 
     }
 }
