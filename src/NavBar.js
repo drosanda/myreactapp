@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function NavBar(){
+    
     return (
-        <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/project">Project</Link></li>
-        </ul>
+        <div className="navbar navbar-top">
+            <div>
+                <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
+                <Link to="/project">Project</Link>
+                <Link to="/login">Login</Link>
+            </div>
+        </div>
     )
 }
 export default NavBar;
